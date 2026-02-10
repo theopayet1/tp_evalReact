@@ -6,6 +6,7 @@ import './App.css'
 
 // pages
 import HomePage from "./pages/Home/HomePage";
+import ContractPage from "./pages/Contract/ContractPage.jsx";
 
 
 
@@ -15,6 +16,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Navigate to="/home" replace />} />
                     <Route path='/home' element={<HomePage />} />
+                    <Route path='/Contract' element={<ContractPage />} />
                 </Routes>
         </Router>
     )
