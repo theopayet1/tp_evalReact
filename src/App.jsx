@@ -9,6 +9,7 @@ import HomePage from "./pages/Home/HomePage";
 import ContractPage from "./pages/Contract/ContractPage.jsx";
 import ContractDetailPage from "./pages/Contract/ContractDetail/ContractDetailPage.jsx";
 import CreateContractPage from "./pages/Contract/CreateContract/CreateContractPage.jsx";
+import EditContractPage from "./pages/Contract/EditContractPage/EditContractPage.jsx";
 
 
 
@@ -21,6 +22,7 @@ function App() {
                     <Route path='/contract' element={<ContractPage />} />
                     <Route path='/contract/create' element={<CreateContractPage />} />
                     <Route path="/contract/:id_contract" element={<ContractDetailPage />} />
+                    <Route path="/contract/:id_contract/edit" element={<EditContractPage />} />
                 </Routes>
         </Router>
     )

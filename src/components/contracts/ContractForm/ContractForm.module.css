@@ -1,0 +1,50 @@
+/* src/components/contracts/ContractForm/ContractForm.module.css */
+.form {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.label {
+    font-weight: 600;
+}
+
+.textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    background: white;
+    font-size: 1rem;
+    outline: none;
+    resize: vertical;
+}
+
+.textarea:focus {
+    border-color: rgba(0, 0, 0, 0.35);
+}
+
+.actions {
+    margin-top: 6px;
+}
+
+.error {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(220, 38, 38, 0.35);
+    background: rgba(220, 38, 38, 0.08);
+    font-weight: 700;
+}

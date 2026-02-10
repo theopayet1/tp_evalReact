@@ -43,6 +43,9 @@ function ContractDetailPage() {
             <div className={styles.topBar}>
                 <Button onClick={() => navigate("/contract")}>Retour aux contrats</Button>
             </div>
+            <Button onClick={() => navigate(`/contract/${contract.id}/edit`)}>
+                Modifier
+            </Button>
 
             {error && <p className={styles.error}>{error}</p>}
             {!error && !contract && <p className={styles.loading}>Chargement...</p>}
