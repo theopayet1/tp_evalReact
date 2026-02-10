@@ -1,22 +1,29 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import Button from "../../../components/ui/Button/Button.jsx";
 import Select from "../../../components/ui/Select/Select.jsx";
+
 import HttpClient from "../../../services/HttpClient.js";
 import WitcherSessionService from "../../../services/WitcherSessionService.js";
+
 import styles from "./LoginWitcherPage.module.css";
 
 function LoginWitcherPage() {
+    // Navigation
     const navigate = useNavigate();
 
+    // Liste des sorceleurs + sélection + erreurs
     const [witchers, setWitchers] = useState([]);
     const [selectedId, setSelectedId] = useState("");
     const [error, setError] = useState("");
 
+    // Chargement des sorceleurs au montage (GET /witchers)
     useEffect(() => {
         const loadWitchers = async () => {
             try {
                 setError("");
+
                 const data = await HttpClient.get("/witchers");
                 setWitchers(Array.isArray(data) ? data : []);
             } catch (e) {
@@ -27,6 +34,7 @@ function LoginWitcherPage() {
         loadWitchers();
     }, []);
 
+    // Validation : on stocke le sorceleur choisi dans la session (onglet)
     const handleSubmit = (e) => {
         e.preventDefault();
         setError("");
@@ -37,9 +45,10 @@ function LoginWitcherPage() {
             return;
         }
 
-        // on mémorise l’identité dans la session (onglet)
+        // Persistance jusqu’à fermeture de l’onglet
         WitcherSessionService.setWitcher({ id: w.id, name: w.name });
 
+        // Redirection vers la liste des contrats
         navigate("/contract");
     };
 
@@ -55,7 +64,10 @@ function LoginWitcherPage() {
                     id="witcher-select"
                     value={selectedId}
                     onChange={(e) => setSelectedId(e.target.value)}
-                    options={witchers.map((w) => ({ value: String(w.id), label: w.name }))}
+                    options={witchers.map((w) => ({
+                        value: String(w.id),
+                        label: w.name,
+                    }))}
                     placeholder="Sélectionner..."
                 />
 

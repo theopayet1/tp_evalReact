@@ -1,5 +1,3 @@
-// src/services/auth/WitcherSessionService.js
-
 const STORAGE_KEY = "witcher_session"; // stocké jusqu’à fermeture de l’onglet
 
 const WitcherSessionService = {
@@ -26,10 +24,12 @@ const WitcherSessionService = {
         }
     },
 
+    //pour se deconecter
     clearWitcher() {
         sessionStorage.removeItem(STORAGE_KEY);
     },
 
+    //verifier si il est autantifier
     isAuthenticated() {
         return !!this.getWitcher();
     },

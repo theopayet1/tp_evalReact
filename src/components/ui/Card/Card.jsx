@@ -6,11 +6,12 @@ const Card = ({
                   title,
                   description,
                   status,
-                  variant = "compact", // "compact" | "detail"
+                  variant = "compact", // "compact" (liste) | "detail" (page détail)
                   reward,
                   witcherName,
                   showLink = true,
               }) => {
+    // Classe CSS selon le statut du contrat
     const statusClass =
         status === "Available"
             ? styles.available
@@ -18,10 +19,16 @@ const Card = ({
                 ? styles.assigned
                 : styles.completed;
 
+    // Permet d'adapter l'affichage (compact = liste, detail = page détail)
     const isCompact = variant === "compact";
 
     return (
-        <div className={`${styles.card} ${statusClass} ${isCompact ? styles.compact : styles.detail}`}>
+        <div
+            className={`${styles.card} ${statusClass} ${
+                isCompact ? styles.compact : styles.detail
+            }`}
+        >
+            {/* En-tête : titre + id + badge statut */}
             <div className={styles.header}>
                 <div className={styles.titleBlock}>
                     <h3 className={styles.title}>{title}</h3>
@@ -31,10 +38,12 @@ const Card = ({
                 <span className={styles.status}>{status}</span>
             </div>
 
+            {/* Description (tronquée en mode compact) */}
             <p className={`${styles.description} ${isCompact ? styles.clamp : ""}`}>
                 {description}
             </p>
 
+            {/* Infos supplémentaires uniquement en mode detail */}
             {!isCompact && (
                 <div className={styles.meta}>
                     {reward !== undefined && (
@@ -53,6 +62,7 @@ const Card = ({
                 </div>
             )}
 
+            {/* Lien vers le détail (désactivable via showLink) */}
             {showLink && id && (
                 <div className={styles.footer}>
                     <Link className={styles.link} to={`/contract/${id}`}>
