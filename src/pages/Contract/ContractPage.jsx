@@ -1,10 +1,35 @@
+import { useState } from "react";
+import Button from "../../components/ui/Button/Button.jsx";
+import HttpClient from "../../services/HttpClient.js";
 
 function ContractPage() {
+    const [contracts, setContracts] = useState(null);
+    const [error, setError] = useState("");
+
+    const fetchContracts = async () => {
+        try {
+            setError("");
+
+            const data = await HttpClient.get("/contracts/");
+            setContracts(data);
+        } catch (e) {
+            setError(e?.message || "Erreur");
+            setContracts(null);
+        }
+    };
 
     return (
         <div>
-            <h1>contrat</h1>
+            <h1>Contrats</h1>
 
+            <Button onClick={fetchContracts}>
+                 recuperer contracts
+            </Button>
+
+            {error && <p>{error}</p>}
+
+            {/* #todo afficher dans une carte*/}
+            {contracts && <p>{JSON.stringify(contracts)}</p>}
         </div>
     );
 }
