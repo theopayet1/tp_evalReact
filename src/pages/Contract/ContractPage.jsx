@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "../../components/ui/Button/Button.jsx";
+import Card from "../../components/ui/Card/Card.jsx";
 import HttpClient from "../../services/HttpClient.js";
 
 function ContractPage() {
@@ -28,8 +29,18 @@ function ContractPage() {
 
             {error && <p>{error}</p>}
 
-            {/* #todo afficher dans une carte*/}
-            {contracts && <p>{JSON.stringify(contracts)}</p>}
+            {Array.isArray(contracts) && (
+                <div style={{ display: "grid", gap: "12px", marginTop: "12px" }}>
+                    {contracts.map((c) => (
+                        <Card
+                            key={c.id}
+                            title={c.title}
+                            description={c.description}
+                            status={c.status}
+                        />
+                    ))}
+                </div>
+            )}
         </div>
     );
 }
