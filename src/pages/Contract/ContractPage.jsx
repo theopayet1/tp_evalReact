@@ -5,6 +5,7 @@ import HttpClient from "../../services/HttpClient.js";
 import Input from "../../components/ui/Input/Input.jsx";
 import Select from "../../components/ui/Select/Select.jsx";
 import {useNavigate} from "react-router-dom";
+import WitcherSessionService from "../../services/WitcherSessionService.js";
 
 function ContractPage() {
     const [contracts, setContracts] = useState(null);
@@ -37,9 +38,12 @@ function ContractPage() {
         fetchContracts(title, status);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [title, status]);
+    const witcher = WitcherSessionService.getWitcher();
+
 
     return (
         <div>
+            <p>Sorceleur courant : {witcher ? witcher.name : "Aucun"}</p>
             <h1>Contrats</h1>
 
             <Button onClick={() => fetchContracts()}>Récupérer contrats</Button>

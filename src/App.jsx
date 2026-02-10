@@ -10,6 +10,7 @@ import ContractPage from "./pages/Contract/ContractPage.jsx";
 import ContractDetailPage from "./pages/Contract/ContractDetail/ContractDetailPage.jsx";
 import CreateContractPage from "./pages/Contract/CreateContract/CreateContractPage.jsx";
 import EditContractPage from "./pages/Contract/EditContractPage/EditContractPage.jsx";
+import LoginWitcherPage from "./pages/Contract/LoginWitcherPage/LoginWitcherPage.jsx";
 
 
 
@@ -17,7 +18,10 @@ function App() {
     return (
         <Router>
                 <Routes>
-                    <Route path="/" element={<Navigate to="/home" replace />} />
+
+                    <Route path="/" element={<Navigate to="/login" replace />} />
+                    <Route path="/login" element={<LoginWitcherPage />} />
+
                     <Route path='/home' element={<HomePage />} />
                     <Route path='/contract' element={<ContractPage />} />
                     <Route path='/contract/create' element={<CreateContractPage />} />

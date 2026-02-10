@@ -5,6 +5,7 @@ import Button from "../../../components/ui/Button/Button.jsx";
 import HttpClient from "../../../services/HttpClient.js";
 import ContractForm from "../../../components/contracts/ContractForm/ContractForm.jsx";
 import styles from "./EditContractPage.module.css";
+import WitcherSessionService from "../../../services/WitcherSessionService.js";
 
 function EditContractPage() {
     const navigate = useNavigate();

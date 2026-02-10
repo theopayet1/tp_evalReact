@@ -4,6 +4,7 @@ import Button from "../../../components/ui/Button/Button.jsx";
 import Card from "../../../components/ui/Card/Card.jsx";
 import HttpClient from "../../../services/HttpClient.js";
 import styles from "./ContractDetailPage.module.css";
+import WitcherSessionService from "../../../services/WitcherSessionService.js";
 
 function ContractDetailPage() {
     const navigate = useNavigate();
@@ -40,6 +41,7 @@ function ContractDetailPage() {
 
     return (
         <div className={styles.page}>
+
             <div className={styles.topBar}>
                 <Button onClick={() => navigate("/contract")}>Retour aux contrats</Button>
             </div>

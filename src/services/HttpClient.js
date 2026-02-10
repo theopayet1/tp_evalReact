@@ -1,6 +1,3 @@
-//#todo
-//import AuthTokenService from "./auth/AuthTokenService";
-
 const HttpClient = {
     baseUrl: "http://localhost:3000/api", //#todo a relier avec un.env
 
@@ -30,16 +27,12 @@ const HttpClient = {
      */
     async request(path, { method = "GET", body, headers } = {}) {
 
-        //#todo Récupération du token d’authentification (cookie)
-        //const token = AuthTokenService.getToken();
 
         // Construction des headers finaux
         const finalHeaders = {
             Accept: "application/json",
             ...(body ? { "Content-Type": "application/json" } : {}),
             ...(headers || {}),
-            //#todo
-            // ...(token ? { Authorization: `Bearer ${token}` } : {}),
         };
 
         // Exécution de la requête HTTP
@@ -56,9 +49,6 @@ const HttpClient = {
 
         // Gestion centralisée des accès non autorisés
         if (res.status === 401) {
-            //#todo
-            // Token expiré ou invalide → déconnexion
-            //AuthTokenService.clearToken();
             window.dispatchEvent(new CustomEvent("auth:unauthorized"));
             throw new Error("Non autorisé (401).");
         }
