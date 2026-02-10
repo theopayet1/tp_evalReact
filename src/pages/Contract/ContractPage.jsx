@@ -4,10 +4,12 @@ import Card from "../../components/ui/Card/Card.jsx";
 import HttpClient from "../../services/HttpClient.js";
 import Input from "../../components/ui/Input/Input.jsx";
 import Select from "../../components/ui/Select/Select.jsx";
+import {useNavigate} from "react-router-dom";
 
 function ContractPage() {
     const [contracts, setContracts] = useState(null);
     const [error, setError] = useState("");
+    const navigate = useNavigate();
 
     const [title, setTitle] = useState("");
     const [status, setStatus] = useState(""); // "", "Available", "Assigned", "Completed"
@@ -41,6 +43,8 @@ function ContractPage() {
             <h1>Contrats</h1>
 
             <Button onClick={() => fetchContracts()}>Récupérer contrats</Button>
+            <Button onClick={() => navigate("/contract/create")}> Crée un contrat</Button>
+
 
             <Input
                 label="Filtre titre"

@@ -7,7 +7,8 @@ import './App.css'
 // pages
 import HomePage from "./pages/Home/HomePage";
 import ContractPage from "./pages/Contract/ContractPage.jsx";
-import ContractDetailPage from "./pages/Contract/ContractDetailPage.jsx";
+import ContractDetailPage from "./pages/Contract/ContractDetail/ContractDetailPage.jsx";
+import CreateContractPage from "./pages/Contract/CreateContract/CreateContractPage.jsx";
 
 
 
@@ -17,7 +18,8 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Navigate to="/home" replace />} />
                     <Route path='/home' element={<HomePage />} />
-                    <Route path='/Contract' element={<ContractPage />} />
+                    <Route path='/contract' element={<ContractPage />} />
+                    <Route path='/contract/create' element={<CreateContractPage />} />
                     <Route path="/contract/:id_contract" element={<ContractDetailPage />} />
                 </Routes>
         </Router>

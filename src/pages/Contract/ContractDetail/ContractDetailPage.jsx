@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Button from "../../components/ui/Button/Button.jsx";
-import Card from "../../components/ui/Card/Card.jsx";
-import HttpClient from "../../services/HttpClient.js";
+import Button from "../../../components/ui/Button/Button.jsx";
+import Card from "../../../components/ui/Card/Card.jsx";
+import HttpClient from "../../../services/HttpClient.js";
 import styles from "./ContractDetailPage.module.css";
 
 function ContractDetailPage() {
