@@ -69,6 +69,7 @@ function ContractPage() {
                     {contracts.map((c) => (
                         <Card
                             key={c.id}
+                            id={c.id}
                             title={c.title}
                             description={c.description}
                             status={c.status}

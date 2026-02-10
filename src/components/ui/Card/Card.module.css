@@ -48,3 +48,15 @@
 .completed {
     border-left: 6px solid #3b82f6;
 }
+.footer {
+    margin-top: 6px;
+}
+
+.link {
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}

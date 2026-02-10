@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import styles from "./Card.module.css";
 
-const Card = ({ title, description, status }) => {
+const Card = ({ id, title, description, status }) => {
     const statusClass =
         status === "Available"
             ? styles.available
@@ -16,6 +17,12 @@ const Card = ({ title, description, status }) => {
             </div>
 
             <p className={styles.description}>{description}</p>
+
+            <div className={styles.footer}>
+                <Link className={styles.link} to={`/contract/${id}`}>
+                    Voir détail
+                </Link>
+            </div>
         </div>
     );
 };
