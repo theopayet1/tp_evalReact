@@ -9,6 +9,23 @@
     gap: 12px;
     margin-bottom: 14px;
 }
+.actions {
+    margin: 12px 0;
+    display: grid;
+    gap: 10px;
+}
+
+.currentWitcher {
+    margin: 8px 0 0;
+    font-weight: 700;
+    opacity: 0.85;
+}
+
+.hint {
+    margin: 0;
+    opacity: 0.75;
+    font-weight: 600;
+}
 
 .loading {
     opacity: 0.8;
